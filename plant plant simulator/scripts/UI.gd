@@ -20,9 +20,8 @@ func _on_request_completed(result, response_code, headers, body):
 func update_seed(new_value):
 	var prev_text = $HBoxContainer.get_node("Seed").get_child(0).bbcode_text
 	prev_text = prev_text.split("\n")
-	if str(new_value) != prev_text[1]:
-		seeds = new_value
-		$HBoxContainer.get_node("Seed").get_child(0).bbcode_text = prev_text[0] + "\n" + str(seeds)
+	seeds += new_value
+	$HBoxContainer.get_node("Seed").get_child(0).bbcode_text = prev_text[0] + "\n" + str(seeds)
 
 func update_text(result):
 	for child in $HBoxContainer.get_children():

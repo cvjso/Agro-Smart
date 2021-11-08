@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 onready var tilemap = $TileMap
 onready var cursor_block = $"block cursor"
@@ -13,7 +13,7 @@ func _process(delta):
 		cursor_block.position = mousePos
 
 func add_seed(value):
-	$CanvasLayer/UI.update_seed(value)
+	$UI.update_seed(value)
 
 func _input(event):
 	if Input.is_action_just_pressed("r_click"):

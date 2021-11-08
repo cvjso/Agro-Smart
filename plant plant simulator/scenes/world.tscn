@@ -20,8 +20,11 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node"]
 script = ExtResource( 2 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+margin_bottom = -165.0
 
 [node name="blocks" type="Node2D" parent="."]
 
@@ -36,10 +39,6 @@ show_collision = true
 compatibility_mode = true
 centered_textures = true
 format = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="CanvasLayer" instance=ExtResource( 3 )]
 
 [node name="block cursor" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.490196 )

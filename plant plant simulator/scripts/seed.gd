@@ -15,6 +15,7 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("click") and mouse_entered:
 		get_parent().add_seed(seed_value)
+		queue_free()
 
 func _on_Area2D_mouse_entered():
 	mouse_entered = true
