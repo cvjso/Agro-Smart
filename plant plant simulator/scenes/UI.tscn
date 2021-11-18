@@ -184,3 +184,7 @@ __meta__ = {
 }
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="seedSender" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="seedSender" to="." method="_on_seedSender_request_completed"]

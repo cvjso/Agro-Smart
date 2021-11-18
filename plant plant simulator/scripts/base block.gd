@@ -11,7 +11,8 @@ func _ready():
 func lose_block():
 	empty = false
 	$Timer.queue_free()
-	anim.play("lose block")
+	if not anim.is_playing():
+		anim.play("lose block")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,3 +29,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		var seed_inst = seed_scene.instance()
 		get_parent().get_parent().add_child(seed_inst)
 		seed_inst.position = position
+		if not empty:
+			anim.play("lose block")

@@ -15,12 +15,11 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("click") and mouse_entered:
 		get_parent().add_seed(seed_value)
-		queue_free()
+		visible = false
+		$AudioStreamPlayer.play()
 
 func _on_Area2D_mouse_entered():
 	mouse_entered = true
-	print("mouse entrou")
-
 
 func _on_Area2D_mouse_exited():
 	mouse_entered = false
@@ -31,3 +30,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("fade_out")
 	elif anim_name == "fade_out":
 		queue_free()
+
+
+func _on_AudioStreamPlayer_finished():
+	queue_free()
